@@ -1,37 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+<link rel="stylesheet" type="text/css"   href="/css/navigation.css">
+<link rel="stylesheet" type="text/css"   href="/css/footer.css">
+    <title></title>
+  </head>
+  <body>
+    <%- include ('partials/navigation') -%>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
-	<title>Recipe App</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <%- body %>
+        <%- include ('partials/footer') -%>
 
-	<link rel="stylesheet" href="/css/recipe_app.css">
-</head>
 
-<body>
-	<div id="nav">
-		<div class="col-sm nav-align">
-			<h1 id="title">Recipe App</h1>
-		</div>
-		<div class="col-sm nav-align">
-			<a href="/">
-				<span class="button">Home</span>
-			</a>
-			<a href="/courses">
-				<span class="button">Cooking Courses</span>
-			</a>
-			<a href="/contact">
-				<span class="button">Contact</span>
-			</a>
-		</div>
-	</div>
-
-	<div class="container">
-		<%- body %>
-	</div>
-
-</body>
-
+  </body>
 </html>
