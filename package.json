@@ -1,0 +1,25 @@
+{
+  "name": "repo",
+  "version": "1.0.0",
+  "description": "Lopputyo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vemarkka/Repo.git"
+  },
+  "keywords": [
+    "lopputyo"
+  ],
+  "author": "Veronika Markkanen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vemarkka/Repo/issues"
+  },
+  "homepage": "https://github.com/vemarkka/Repo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
