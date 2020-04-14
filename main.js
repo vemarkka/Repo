@@ -31,8 +31,7 @@ app.post("/", (req, res) => {
   res.send("POST Successful!");
 });
 
-app.get("/items/:vegetable", homeController.sendReqParam);
-app.get("/name/:aname", homeController.respondWithName);
+app.get("/index", homeController.sendReqParam);
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
