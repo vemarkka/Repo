@@ -44,6 +44,7 @@ app.post("/", (req, res) => {
 
 app.get("/homepage", homeController.sendReqParam);
 app.get("/error",function (req,res) {res.render('error');});
+app.get("/",function (req,res) {res.render('thanks');});
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
