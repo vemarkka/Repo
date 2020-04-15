@@ -42,7 +42,8 @@ app.post("/", (req, res) => {
   res.send("POST Successful!");
 });
 
-app.get("/index", homeController.sendReqParam);
+app.get("/homepage", homeController.sendReqParam);
+app.get("/error",function (req,res) {res.render('error');});
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
