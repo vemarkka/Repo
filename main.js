@@ -5,7 +5,18 @@ const port = 3000,
   app = express(),
   homeController = require("./controllers/homeController"),
 layouts = require("express-ejs-layouts"),
-errorController = require("./controllers/errorController");
+errorController = require("./controllers/errorController"),
+mongoose = require('mongoose'),
+db = mongoose.connection;
+mongoose.connect(
+  "mongodb://localhost:27017/recipe_db",
+  { useNewUrlParser: true }
+);
+db.collection("forms")
+.insert({}, (error,db)=>{
+  if (error) throw error;
+  console.log(db);
+});
 
 app.set("view engine", "ejs");
 app.use(express.static('public'));
