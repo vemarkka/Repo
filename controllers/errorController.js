@@ -1,10 +1,10 @@
 const httpStatus=require("http-status-codes");
 
 exports.respondNone=(req,res)=>{
-  let errorCode=httpStatus.NOT_FOUND;
+  let errorCode = httpStatus.NOT_FOUND;
   res.status(errorCode);
-  res.send(`error`);
-};
+  res.render("error");
+  };
 
 
 exports.respond404=(error,req,res,next)=>{

@@ -6,6 +6,5 @@ exports.logRequestPaths = (req, res, next) => {
 };
 
 exports.respondWithName=(req,res)=>{
-  let paramsName=req.params.aname;
-  res.render("index", {name:paramsName});
+  res.render("index");
 };

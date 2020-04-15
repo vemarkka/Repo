@@ -41,17 +41,16 @@ app.use((req, res, next) => {
   next();
 });
 app.set("port", process.env.PORT || 3000);
-app.post("/", (req, res) => {
-  console.log(req.body);
-  console.log(req.query);
-  res.send("POST Successful!");
-});
 
+app.get("/", homeController.respondWithName);
 app.get("/homepage", homeController.respondWithName);
-app.get("/error",function (req,res) {res.render('error');});
-app.get("/thanks",function (req,res) {res.render('thanks');});
+app.get("/error",function (req,res) {res.send('error');});
+app.get("/thanks",function (req,res) {res.send('thanks');});
+
+
 app.use(errorController.respondNone);
 app.use(errorController.respond404);
+
 app.listen(app.get("port"), () => {
 console.log(`Server running at http://localhost:${app.get("port")}`);
 });
