@@ -1,13 +1,19 @@
 "use strict";
 
-const port = 3000,
-  express = require("express"),
-  app = express(),
-  homeController = require("./controllers/homeController"),
-layouts = require("express-ejs-layouts"),
-errorController = require("./controllers/errorController"),
-mongoose = require('mongoose'),
-db = mongoose.connection;
+const express = require("express");
+const app = express();
+const layouts = require("express-ejs-layouts");
+
+const contentTypes = require("./contentTypes");
+const utils = require("./utils");
+const router = require("./router");
+
+const errorController = require("./controllers/errorController");
+const homeController = require("./controllers/homeController");
+
+
+const mongoose = require("mongoose");
+const db = mongoose.connection;
 mongoose.connect(
   "mongodb://localhost:27017/recipe_db",
   { useNewUrlParser: true }
@@ -20,8 +26,7 @@ db.collection("forms")
 
 app.set("view engine", "ejs");
 app.use(express.static('public'));
-app.use(errorController.respondNone);
-app.use(errorController.respond404);
+
 
 app.use(
   express.urlencoded({
@@ -35,16 +40,18 @@ app.use((req, res, next) => {
   console.log(`request made to: ${req.url}`);
   next();
 });
-
+app.set("port", process.env.PORT || 3000);
 app.post("/", (req, res) => {
   console.log(req.body);
   console.log(req.query);
   res.send("POST Successful!");
 });
 
-app.get("/homepage", homeController.sendReqParam);
+app.get("/homepage", homeController.respondWithName);
 app.get("/error",function (req,res) {res.render('error');});
-app.get("/",function (req,res) {res.render('thanks');});
-app.listen(port, () => {
-  console.log(`Server running on port: ${port}`);
+app.get("/thanks",function (req,res) {res.render('thanks');});
+app.use(errorController.respondNone);
+app.use(errorController.respond404);
+app.listen(app.get("port"), () => {
+console.log(`Server running at http://localhost:${app.get("port")}`);
 });
